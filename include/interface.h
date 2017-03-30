@@ -1338,6 +1338,8 @@ typedef enum display_len
   DISPLAY_LEN_MAX_16000 = 10,
   DISPLAY_LEN_MIN_16100 = 1 + 11 + 1 + 1 + 1 + 8 +  12 + 1 + 4,
   DISPLAY_LEN_MAX_16100 = 1 + 11 + 1 + 1 + 1 + 8 + 256 + 1 + 4,
+  DISPLAY_LEN_MIN_16110 = 8,
+  DISPLAY_LEN_MAX_16110 = 8,
   DISPLAY_LEN_MIN_16200 = 5 + 1 + 1 + 1 + 5 + 1 + 32 + 1 + 48,
   DISPLAY_LEN_MAX_16200 = 5 + 1 + 6 + 1 + 5 + 1 + 32 + 1 + 48,
   DISPLAY_LEN_MIN_16300 = 11 + 1 +   64 + 1 + 40 + 1 + 32,
@@ -1679,6 +1681,7 @@ typedef enum kern_type
   KERN_TYPE_DPAPIMK_V2              = 15900,
   KERN_TYPE_TRIPCODE                = 16000,
   KERN_TYPE_TACACS_PLUS             = 16100,
+  KERN_TYPE_PS3_NID                 = 16110,
   KERN_TYPE_APPLE_SECURE_NOTES      = 16200,
   KERN_TYPE_ETHEREUM_PRESALE        = 16300,
   KERN_TYPE_CRAM_MD5_DOVECOT        = 16400,
@@ -1952,6 +1955,7 @@ int apple_secure_notes_parse_hash (u8 *input_buf, u32 input_len, hash_t *hash_bu
 int ethereum_presale_parse_hash   (u8 *input_buf, u32 input_len, hash_t *hash_buf, MAYBE_UNUSED hashconfig_t *hashconfig);
 int jwt_parse_hash                (u8 *input_buf, u32 input_len, hash_t *hash_buf, MAYBE_UNUSED hashconfig_t *hashconfig);
 int electrum_wallet13_parse_hash  (u8 *input_buf, u32 input_len, hash_t *hash_buf, MAYBE_UNUSED hashconfig_t *hashconfig);
+int ps3_nid_parse_hash            (u8 *input_buf, u32 input_len, hash_t *hash_buf, MAYBE_UNUSED const hashconfig_t *hashconfig);
 
 /**
  * hook functions
